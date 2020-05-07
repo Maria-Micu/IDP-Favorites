@@ -20,7 +20,7 @@ var jsonParser = bodyParser.json()
 
 // Get favorites for guid
 app.get('/favorites/:guid', jsonParser, async function (req, res) {
-    postAsyncLog(`Fetch cart data endpoind called with ${req.params.guid}`)
+    postAsyncLog(`Fetch favorites data endpoind called with ${req.params.guid}`)
 
     const [favDetails, fields] = await promisePool.query(`SELECT * FROM fav where guid = '${req.params.guid}'`);
     postAsyncLog(`Favorites Results fetched: ${favDetails}`)
